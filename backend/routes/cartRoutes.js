@@ -14,7 +14,7 @@ router.post("/add", protect, async (req, res) => {
       console.log("if block", cart);
     } else {
       console.log("from else", cart);
-      const itemIndex = cart.item.find(
+      const itemIndex = cart.item.findIndex(
         (item) => item.productId.toString() == productId,
       );
       if (itemIndex > -1) {
