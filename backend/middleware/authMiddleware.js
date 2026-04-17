@@ -21,6 +21,7 @@ const authorize = (req, res, next) => {
   if (req.user.role != "admin") {
     return res.status(401).json({ message: "Unauthoruzed" });
   }
+  next();
 };
 
 module.exports = { protect, authorize };

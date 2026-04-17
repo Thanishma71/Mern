@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const { protect, authorize } = require("../middleware/authMiddleware");
 const Product = require("../models/Product");
 
@@ -23,7 +22,7 @@ router.post("/add", protect, authorize, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find();
-    return res.status(200).json({ products });
+    return res.status(200).json(products);
   } catch (err) {
     console.log("error from get product", err);
     return res.status(500).json({ message: `error from get product ${err}` });
